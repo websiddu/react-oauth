@@ -133,5 +133,8 @@ export default function useGoogleLogin({
     [],
   );
 
-  return flow === 'implicit' ? loginImplicitFlow : loginAuthCodeFlow;
+  return {
+    login: flow === 'implicit' ? loginImplicitFlow : loginAuthCodeFlow,
+    client: clientRef.current,
+  };
 }
